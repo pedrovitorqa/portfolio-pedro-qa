@@ -887,6 +887,7 @@ a:hover, button:hover {
     max-width: 100%;
     margin-bottom: 3rem;
     padding: 0 60px;
+    overflow: hidden;
 }
 
 .projects-carousel {
@@ -946,17 +947,6 @@ a:hover, button:hover {
     right: 0;
 }
 
-.carousel-btn:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-    background: #555;
-}
-
-.carousel-btn:disabled:hover {
-    transform: translateY(-50%);
-    box-shadow: none;
-}
-
 .carousel-dots {
     display: flex;
     justify-content: center;
@@ -992,9 +982,11 @@ a:hover, button:hover {
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     text-decoration: none;
-    display: block;
+    display: flex;
+    flex-direction: column;
     position: relative;
     border: 2px solid transparent;
+    min-height: 300px;
 }
 
 .project-card::after {
@@ -1099,17 +1091,21 @@ a:hover, button:hover {
     justify-content: center;
     background: #ffffff;
     padding: 2rem;
-    height: 300px;
+    min-height: 300px;
+    flex: 1;
 }
 
 .project-logo img {
     width: auto !important;
     height: auto !important;
     max-width: 70% !important;
-    max-height: 70% !important;
+    max-height: 200px !important;
     object-fit: contain !important;
     filter: none !important;
     transition: transform 0.4s ease;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
 
 .project-card:hover .project-logo img {
@@ -1335,18 +1331,32 @@ a:hover, button:hover {
     }
 
     .carousel-container {
-        padding: 0 50px;
+        padding: 0;
+        overflow: hidden;
+        width: 100%;
     }
 
     .carousel-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
+        display: none;
+    }
+
+    .projects-carousel {
+        overflow: hidden;
+        width: 100%;
+        padding: 0;
+    }
+
+    .projects-grid {
+        justify-content: center;
+        padding-left: 0;
+        gap: 20px;
     }
 
     .project-card {
-        flex: 0 0 calc(100vw - 120px);
-        min-width: calc(100vw - 120px);
+        flex: 0 0 85vw;
+        min-width: 85vw;
+        max-width: 85vw;
+        margin: 0 auto;
     }
 
     .project-logo {
@@ -1354,10 +1364,15 @@ a:hover, button:hover {
         justify-content: center;
         align-items: center;
         height: 250px;
+        width: 100%;
+        text-align: center;
     }
 
     .project-logo img {
-        margin: 0 auto;
+        margin: 0 auto !important;
+        max-height: 150px !important;
+        max-width: 80% !important;
+        display: block !important;
     }
 
     .project-overlay h4 {

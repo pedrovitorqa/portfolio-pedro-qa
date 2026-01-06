@@ -309,8 +309,20 @@ document.addEventListener('DOMContentLoaded', () => {
         
         function updateCarousel() {
             const cardWidth = cards[0].offsetWidth;
-            const gap = window.innerWidth <= 768 ? 16 : 32;
-            const offset = currentIndex * (cardWidth + gap);
+            const isMobile = window.innerWidth <= 768;
+            const gap = isMobile ? 20 : 32; // Gap entre cards
+            
+            let offset;
+            if (isMobile) {
+                // No mobile, centralizar cada card
+                const containerWidth = carousel.offsetWidth;
+                const cardOffset = currentIndex * (cardWidth + gap);
+                const centerOffset = (containerWidth - cardWidth) / 2;
+                offset = cardOffset - centerOffset;
+            } else {
+                offset = currentIndex * (cardWidth + gap);
+            }
+            
             projectsGrid.style.transform = `translateX(-${offset}px)`;
             
             // Atualizar dots
@@ -319,11 +331,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 dot.classList.toggle('active', index === currentPage);
             });
             
-            // Atualizar botões
-            prevBtn.disabled = currentIndex === 0;
-            // Permite ir até o último card
-            const maxIndex = totalCards - 1;
-            nextBtn.disabled = currentIndex >= maxIndex;
+            // Botões sempre ativos para permitir loop
+            if (prevBtn && nextBtn) {
+                prevBtn.disabled = false;
+                nextBtn.disabled = false;
+            }
         }
         
         function goToPage(pageIndex) {
@@ -339,6 +351,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (currentIndex > 0) {
                 currentIndex--;
                 updateCarousel();
+            } else {
+                // Se estiver no primeiro, vai para o último
+                currentIndex = totalCards - 1;
+                updateCarousel();
             }
         });
         
@@ -346,6 +362,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const maxIndex = totalCards - 1;
             if (currentIndex < maxIndex) {
                 currentIndex++;
+                updateCarousel();
+            } else {
+                // Se estiver no último, volta para o primeiro
+                currentIndex = 0;
                 updateCarousel();
             }
         });
