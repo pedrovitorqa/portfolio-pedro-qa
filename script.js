@@ -2,6 +2,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
+    const header = document.getElementById('header');
+    
+    let lastScrollTop = 0;
+    let scrollThreshold = 100;
+
+    window.addEventListener('scroll', () => {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > scrollThreshold) {
+            header.classList.add('header-scrolled');
+            
+            if (scrollTop > lastScrollTop) {
+                header.classList.add('header-hidden');
+            } else {
+                header.classList.remove('header-hidden');
+            }
+        } else {
+            header.classList.remove('header-scrolled');
+            header.classList.remove('header-hidden');
+        }
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
     
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
