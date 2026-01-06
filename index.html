@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedro Honorio - Portfólio de QA</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header id="header">
+        <nav id="navbar">
+            <a href="#inicio" class="logo"><span class="bracket">&lt;</span>Pedro Honorio<span class="bracket">/&gt;</span></a>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio" data-translate="nav_inicio">Início</a></li>
+                <li><a href="#sobre" data-translate="nav_sobre">Sobre mim</a></li>
+                <li><a href="#experiencia" data-translate="nav_experiencia">Experiência</a></li>
+                <li><a href="#projetos" data-translate="nav_projetos">Projetos</a></li>
+                <li class="language-switch">
+                    <button id="langBtn" class="lang-btn" title="Change Language">
+                        <span class="flag-icon">🇧🇷</span>
+                        <span class="lang-text">PT</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="section hero-section">
+        <div class="hero-background">
+            <div class="gradient-circle circle-1"></div>
+            <div class="gradient-circle circle-2"></div>
+            <div class="gradient-circle circle-3"></div>
+        </div>
+        <div class="container welcome-container">
+            <div class="social-sidebar fade-in">
+                <a href="https://www.linkedin.com/in/pedro-honorio-36ba6a1b8/" target="_blank" class="social-icon" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/pedrovitorqa" target="_blank" class="social-icon" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.instagram.com/opedro.vitor/" target="_blank" class="social-icon" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+            
+            <div class="welcome-text fade-in">
+                <h1 class="welcome-title" data-translate="welcome_title">Bem Vindo.</h1>
+                <p class="welcome-description" data-translate="welcome_description">
+                    Meu nome é <span class="highlight-name">Pedro Honorio</span>, analista de qualidade de software na Webjump. Trabalho com uma ampla gama de projetos de QA, desde automação de testes em aplicações web até testes de API e performance, com foco na criação de testes bem estruturados que não apenas identificam bugs, mas também garantem uma experiência de usuário impecável e confiável.
+                </p>
+            </div>
+            <div class="welcome-image fade-in">
+                <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="300" cy="300" r="250" fill="url(#bgGradient)" opacity="0.1"/>
+                    
+                    <defs>
+                        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#569CD6;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#4EC9B0;stop-opacity:1" />
+                        </linearGradient>
+                        <linearGradient id="screenGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#569CD6;stop-opacity:0.3" />
+                            <stop offset="100%" style="stop-color:#1E1E1E;stop-opacity:0.1" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <ellipse cx="300" cy="520" rx="200" ry="15" fill="#2a2a2a" opacity="0.3"/>
+                    <rect x="100" y="400" width="400" height="120" rx="5" fill="#3a3a3a"/>
+                    
+                    <rect x="250" y="420" width="100" height="15" rx="7" fill="#2a2a2a"/>
+                    <rect x="270" y="435" width="60" height="80" rx="30" fill="#2a2a2a"/>
+                    <rect x="283" y="515" width="34" height="60" fill="#2a2a2a"/>
+                    <circle cx="290" cy="575" r="8" fill="#1a1a1a"/>
+                    <circle cx="310" cy="575" r="8" fill="#1a1a1a"/>
+                    
+                    <ellipse cx="300" cy="360" rx="45" ry="55" fill="#569CD6"/>
+                    <rect x="255" y="340" width="90" height="60" fill="#569CD6"/>
+                    
+                    <rect x="220" y="350" width="35" height="70" rx="15" fill="#4a90e2"/>
+                    <rect x="345" y="350" width="35" height="70" rx="15" fill="#4a90e2"/>
+                    
+                    <ellipse cx="230" cy="425" rx="15" ry="12" fill="#D4A574"/>
+                    <ellipse cx="370" cy="425" rx="15" ry="12" fill="#D4A574"/>
+                    
+                    <rect x="285" y="300" width="30" height="25" fill="#D4A574"/>
+                    
+                    <circle cx="300" cy="285" r="35" fill="#D4A574"/>
+                    
+                    <path d="M 265 280 Q 265 250 300 255 Q 335 250 335 280 Q 335 270 330 265 Q 325 260 320 265 Q 315 255 310 260 Q 305 255 300 260 Q 295 255 290 260 Q 285 255 280 260 Q 275 255 270 265 Q 265 260 265 280" fill="#1a1a1a"/>
+                    
+                    <circle cx="290" cy="280" r="3" fill="#1a1a1a"/>
+                    <circle cx="310" cy="280" r="3" fill="#1a1a1a"/>
+                    
+                    <circle cx="290" cy="280" r="10" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+                    <circle cx="310" cy="280" r="10" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+                    <line x1="300" y1="280" x2="300" y2="280" stroke="#2a2a2a" stroke-width="2"/>
+                    
+                    <path d="M 290 295 Q 300 300 310 295" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
+                    
+                    <rect x="180" y="200" width="240" height="160" rx="8" fill="#2a2a2a"/>
+                    <rect x="190" y="210" width="220" height="135" fill="#1E1E1E"/>
+                    
+                    <rect x="195" y="215" width="210" height="125" fill="url(#screenGlow)"/>
+                    
+                    <text x="205" y="235" font-family="monospace" font-size="12" fill="#569CD6">describe('QA Test', () =&gt; {</text>
+                    <text x="215" y="250" font-family="monospace" font-size="12" fill="#4EC9B0">it('should validate', () =&gt; {</text>
+                    <text x="225" y="265" font-family="monospace" font-size="12" fill="#DCDCAA">expect(quality)</text>
+                    <text x="235" y="280" font-family="monospace" font-size="12" fill="#CE9178">.toBe('perfect')</text>
+                    <text x="215" y="295" font-family="monospace" font-size="12" fill="#4EC9B0">})</text>
+                    <text x="205" y="310" font-family="monospace" font-size="12" fill="#569CD6">})</text>
+                    
+                    <circle cx="385" cy="230" r="12" fill="#4EC9B0" opacity="0.3"/>
+                    <path d="M 380 230 L 383 235 L 390 225" fill="none" stroke="#4EC9B0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    
+                    <rect x="280" y="360" width="40" height="8" rx="4" fill="#2a2a2a"/>
+                    <polygon points="285,368 315,368 310,380 290,380" fill="#2a2a2a"/>
+                    
+                    <rect x="200" y="415" width="200" height="50" rx="5" fill="#2a2a2a"/>
+                    <rect x="210" y="425" width="180" height="30" rx="3" fill="#1a1a1a"/>
+                    <rect x="215" y="430" width="12" height="8" rx="1" fill="#3a3a3a"/>
+                    <rect x="230" y="430" width="12" height="8" rx="1" fill="#3a3a3a"/>
+                    <rect x="245" y="430" width="12" height="8" rx="1" fill="#3a3a3a"/>
+                    <rect x="260" y="430" width="12" height="8" rx="1" fill="#3a3a3a"/>
+                    <rect x="275" y="430" width="12" height="8" rx="1" fill="#3a3a3a"/>
+                    <rect x="215" y="442" width="12" height="8" rx="1" fill="#3a3a3a"/>
+                    <rect x="230" y="442" width="12" height="8" rx="1" fill="#3a3a3a"/>
+                    <rect x="245" y="442" width="25" height="8" rx="1" fill="#569CD6" opacity="0.5"/>
+                    
+                    <ellipse cx="430" cy="430" rx="12" ry="18" fill="#2a2a2a"/>
+                    <line x1="430" y1="418" x2="430" y2="435" stroke="#1a1a1a" stroke-width="1"/>
+                    
+                    <ellipse cx="140" cy="430" rx="15" ry="5" fill="#3a3a3a"/>
+                    <rect x="125" y="410" width="30" height="20" fill="#569CD6" opacity="0.7"/>
+                    <path d="M 155 415 Q 165 415 165 425 Q 165 435 155 435" fill="none" stroke="#569CD6" stroke-width="2"/>
+                    <path d="M 130 405 Q 133 395 136 405" fill="none" stroke="#569CD6" stroke-width="1" opacity="0.5">
+                        <animate attributeName="opacity" values="0.5;0.2;0.5" dur="2s" repeatCount="indefinite"/>
+                    </path>
+                    
+                    <g opacity="0.6">
+                        <circle cx="480" cy="250" r="20" fill="#4EC9B0" opacity="0.2"/>
+                        <path d="M 475 250 L 478 255 L 485 245" fill="none" stroke="#4EC9B0" stroke-width="3" stroke-linecap="round">
+                            <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="3s" repeatCount="indefinite"/>
+                        </path>
+                    </g>
+                    
+                    <g opacity="0.6">
+                        <circle cx="100" cy="300" r="20" fill="#CE9178" opacity="0.2"/>
+                        <text x="100" y="308" text-anchor="middle" font-size="20" fill="#CE9178" font-weight="bold">!</text>
+                        <animateTransform attributeName="transform" type="translate" values="0,0; 0,-12; 0,0" dur="2.5s" repeatCount="indefinite"/>
+                    </g>
+                    
+                    <g opacity="0.6">
+                        <circle cx="500" cy="350" r="18" fill="#DCDCAA" opacity="0.2"/>
+                        <path d="M 493 350 L 507 350 M 500 343 L 500 357" stroke="#DCDCAA" stroke-width="2.5" stroke-linecap="round"/>
+                        <animateTransform attributeName="transform" type="translate" values="0,0; 0,-8; 0,0" dur="3.5s" repeatCount="indefinite"/>
+                    </g>
+                </svg>
+            </div>
+        </div>
+      
+        <div class="scroll-indicator">
+            <div class="mouse-icon">
+                <div class="mouse-wheel"></div>
+            </div>
+            <span>Scroll down</span>
+        </div>
+    </section>
+
+    <section id="sobre" class="section sobre-section">
+        <div class="wave-divider">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0 C300,100 900,0 1200,50 L1200,0 L0,0 Z" fill="#1E1E1E"></path>
+            </svg>
+        </div>
+        <div class="container">
+            <h2 class="section-title fade-in" data-translate="about_title">Sobre Mim</h2>
+            <div class="about-grid">
+                <div class="about-card fade-in">
+                    <div class="card-icon">
+                        <i class="fas fa-user-tie fa-3x"></i>
+                    </div>
+                    <h3 data-translate="about_who_title">Quem Sou</h3>
+                    <p data-translate="about_who_text">Formado em Análise e Desenvolvimento de Sistemas e pós-graduando em Engenharia de Qualidade de Software. Atualmente, trabalho como Analista de Qualidade de Software Pleno na Webjump.</p>
+                </div>
+                
+                <div class="about-card fade-in">
+                    <div class="card-icon">
+                        <i class="fas fa-briefcase fa-3x"></i>
+                    </div>
+                    <h3 data-translate="about_experience_title">Experiência</h3>
+                    <p data-translate="about_experience_text">Mais de 4 anos atuando em QA, desenvolvendo testes automatizados para web e API, implementando CI/CD e garantindo a qualidade em projetos de alta complexidade e impacto.</p>
+                </div>
+                
+                <div class="about-card fade-in">
+                    <div class="card-icon">
+                        <i class="fas fa-bullseye fa-3x"></i>
+                    </div>
+                    <h3 data-translate="about_focus_title">Foco</h3>
+                    <p data-translate="about_focus_text">Comprometido com excelência em qualidade de software, atenção aos detalhes, proatividade na identificação de melhorias e entrega de soluções eficientes, escaláveis e confiáveis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experiencia" class="section experiencia-section">
+        <div class="wave-divider">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0 C300,100 900,0 1200,50 L1200,0 L0,0 Z" fill="#f8f9fa"></path>
+            </svg>
+        </div>
+        <div class="container">
+            <h2 class="section-title fade-in" data-translate="experience_title">Experiência em QA</h2>
+            
+            <div class="experience-card main-experience fade-in">
+                <div class="experience-header">
+                    <div class="experience-title-group">
+                        <h3 data-translate="experience_job_title">Analista de QA Pleno</h3>
+                        <p class="company"><i class="fas fa-building"></i> Webjump</p>
+                    </div>
+                    <div class="experience-duration">
+                        <span class="duration-badge" data-translate="experience_duration">+4 anos</span>
+                    </div>
+                </div>
+                
+                <div class="experience-intro">
+                    <p class="mission-text" data-translate="experience_mission">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        Impulsionando a cultura de qualidade como diferencial competitivo em projetos de grande porte e visibilidade nacional — promovendo soluções assertivas, confiáveis e alinhadas ao negócio.
+                        <i class="fas fa-quote-right quote-icon"></i>
+                    </p>
+                </div>
+
+                <div class="experience-pillars">
+                    <div class="pillar pillar-tech fade-in">
+                        <div class="pillar-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4 data-translate="pillar_tech_title">Excelência Técnica</h4>
+                        <ul class="pillar-list">
+                            <li data-translate="pillar_tech_1"><i class="fas fa-bolt"></i> Shift-left testing e cultura de qualidade em times ágeis</li>
+                            <li data-translate="pillar_tech_2"><i class="fas fa-robot"></i> Automação E2E, API, Mobile e Web (Cypress, GraphQL, Ruby, Capybara)</li>
+                            <li data-translate="pillar_tech_3"><i class="fas fa-vial"></i> Testes REST/GraphQL com Postman, Curl e Newman</li>
+                            <li data-translate="pillar_tech_4"><i class="fas fa-sync-alt"></i> BDD e integração contínua (CI/CD)</li>
+                            <li data-translate="pillar_tech_5"><i class="fas fa-bug"></i> Gestão completa do ciclo de vida de bugs</li>
+                        </ul>
+                    </div>
+
+                    <div class="pillar pillar-leadership fade-in">
+                        <div class="pillar-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4 data-translate="pillar_leadership_title">Liderança & Comunicação</h4>
+                        <ul class="pillar-list">
+                            <li data-translate="pillar_leadership_1"><i class="fas fa-user-check"></i> Reconhecida como proativo e organizado</li>
+                            <li data-translate="pillar_leadership_2"><i class="fas fa-lightbulb"></i> Traduz complexidade técnica em soluções de negócio</li>
+                            <li data-translate="pillar_leadership_3"><i class="fas fa-handshake"></i> Referência em relacionamento com cliente</li>
+                            <li data-translate="pillar_leadership_4"><i class="fas fa-eye"></i> Visibilidade total do projeto</li>
+                            <li data-translate="pillar_leadership_5"><i class="fas fa-chalkboard-teacher"></i> Mentor no programa interno Jumpartener</li>
+                            <li data-translate="pillar_leadership_6"><i class="fas fa-balance-scale"></i> Mediação de conflitos e articulação entre áreas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tech-stack-modern">
+                    <h5 data-translate="tech_stack_title"><i class="fas fa-layer-group"></i> Stack Tecnológica</h5>
+                    <div class="tech-grid">
+                        <span class="tech-badge cypress"><i class="fas fa-check-double"></i> Cypress</span>
+                        <span class="tech-badge js"><i class="fab fa-js"></i> JavaScript</span>
+                        <span class="tech-badge ruby"><i class="fas fa-gem"></i> Ruby</span>
+                        <span class="tech-badge api"><i class="fas fa-plug"></i> GraphQL</span>
+                        <span class="tech-badge postman"><i class="fas fa-paper-plane"></i> Postman</span>
+                        <span class="tech-badge cucumber"><i class="fas fa-leaf"></i> Cucumber</span>
+                        <span class="tech-badge mysql"><i class="fas fa-database"></i> MySQL</span>
+                        <span class="tech-badge mongodb"><i class="fas fa-database"></i> MongoDB</span>
+                        <span class="tech-badge capybara"><i class="fas fa-spider"></i> Capybara</span>
+                        <span class="tech-badge ci"><i class="fas fa-infinity"></i> CI/CD</span>
+                        <span class="tech-badge scrum"><i class="fas fa-running"></i> Scrum</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projetos" class="section projects-section">
+        <div class="wave-divider">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0 C300,100 900,0 1200,50 L1200,0 L0,0 Z" fill="#1E1E1E"></path>
+            </svg>
+        </div>
+        <div class="container">
+            <h2 class="section-title fade-in" data-translate="projects_title">Meus Trabalhos</h2>
+            <p class="section-subtitle fade-in" data-translate="projects_subtitle">Alguns dos meus projetos passados e presentes</p>
+            
+            <h3 class="project-category fade-in" data-translate="projects_category">Aplicações Web</h3>
+            <div class="projects-grid fade-in">
+                <a href="https://loja.bungeprofissional.com.br/" target="_blank" class="project-card">
+                    <div class="project-image">
+                        <img src="https://image.thum.io/get/width/600/crop/800/https://loja.bungeprofissional.com.br/" alt="Bunge Profissional">
+                    </div>
+                    <div class="project-info">
+                        <h4>Bunge Profissional</h4>
+                    </div>
+                </a>
+                
+                <a href="https://www.lojafamilynes.com.br/" target="_blank" class="project-card">
+                    <div class="project-image">
+                        <img src="https://image.thum.io/get/width/600/crop/800/https://www.lojafamilynes.com.br/" alt="Family Nes">
+                    </div>
+                    <div class="project-info">
+                        <h4>Family Nes</h4>
+                    </div>
+                </a>
+                
+                <a href="https://certisign.com.br/" target="_blank" class="project-card">
+                    <div class="project-image">
+                        <img src="https://image.thum.io/get/width/600/crop/800/https://certisign.com.br/" alt="Certisign">
+                    </div>
+                    <div class="project-info">
+                        <h4>Certisign</h4>
+                    </div>
+                </a>
+                
+                <a href="https://aeroportos.motiva.com.br/" target="_blank" class="project-card">
+                    <div class="project-image">
+                        <img src="https://image.thum.io/get/width/600/crop/800/https://aeroportos.motiva.com.br/" alt="CCR Aeroportos">
+                    </div>
+                    <div class="project-info">
+                        <h4>CCR Aeroportos</h4>
+                    </div>
+                </a>
+                
+                <a href="https://lumisfera.com.br/" target="_blank" class="project-card">
+                    <div class="project-image">
+                        <img src="https://image.thum.io/get/width/600/crop/800/https://lumisfera.com.br/" alt="Lumisfera">
+                    </div>
+                    <div class="project-info">
+                        <h4>Lumisfera</h4>
+                    </div>
+                </a>
+                
+                <a href="https://home.broto.com.br/" target="_blank" class="project-card">
+                    <div class="project-image">
+                        <img src="https://image.thum.io/get/width/600/crop/800/https://home.broto.com.br/" alt="Broto">
+                    </div>
+                    <div class="project-info">
+                        <h4>Broto</h4>
+                    </div>
+                </a>
+                
+                <a href="https://www.mygaldermastore.com.br/" target="_blank" class="project-card">
+                    <div class="project-image">
+                        <img src="https://image.thum.io/get/width/600/crop/800/https://www.mygaldermastore.com.br/" alt="MyGalderma Store">
+                    </div>
+                    <div class="project-info">
+                        <h4>MyGalderma Store</h4>
+                    </div>
+                </a>
+                
+                <a href="https://www.yarabrasil.com.br/" target="_blank" class="project-card">
+                    <div class="project-image">
+                        <img src="https://image.thum.io/get/width/600/crop/800/https://www.yarabrasil.com.br/" alt="Yara Brasil">
+                    </div>
+                    <div class="project-info">
+                        <h4>Yara Brasil</h4>
+                    </div>
+                </a>
+                
+                <a href="https://www.starbucks.com.br/" target="_blank" class="project-card">
+                    <div class="project-image">
+                        <img src="https://image.thum.io/get/width/600/crop/800/https://www.starbucks.com.br/" alt="Starbucks Brasil">
+                    </div>
+                    <div class="project-info">
+                        <h4>Starbucks Brasil</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <p data-translate="footer_text">Desenvolvido com ❤️ por Pedro Honorio</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
