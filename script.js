@@ -110,6 +110,15 @@ document.addEventListener('DOMContentLoaded', () => {
             projects_title: 'Meus Trabalhos',
             projects_subtitle: 'Alguns dos meus projetos passados e presentes',
             projects_category: 'Aplicações Web',
+            project_bunge_tag: 'E-commerce • Agronegócio',
+            project_nestle_tag: 'E-commerce • Alimentos',
+            project_certisign_tag: 'Portal • Certificação Digital',
+            project_ccr_tag: 'Sistema • Infraestrutura',
+            project_lumisfera_tag: 'E-commerce • Iluminação',
+            project_broto_tag: 'E-commerce • Sustentabilidade',
+            project_galderma_tag: 'E-commerce • Dermatologia',
+            project_yara_tag: 'Portal • Fertilizantes',
+            project_starbucks_tag: 'E-commerce • Café Premium',
             footer_text: 'Desenvolvido com ❤️ por Pedro Honorio'
         },
         en: {
@@ -147,6 +156,15 @@ document.addEventListener('DOMContentLoaded', () => {
             projects_title: 'My Work',
             projects_subtitle: 'Some of my past and present projects',
             projects_category: 'Web Applications',
+            project_bunge_tag: 'E-commerce • Agribusiness',
+            project_nestle_tag: 'E-commerce • Food',
+            project_certisign_tag: 'Portal • Digital Certification',
+            project_ccr_tag: 'System • Infrastructure',
+            project_lumisfera_tag: 'E-commerce • Lighting',
+            project_broto_tag: 'E-commerce • Sustainability',
+            project_galderma_tag: 'E-commerce • Dermatology',
+            project_yara_tag: 'Portal • Fertilizers',
+            project_starbucks_tag: 'E-commerce • Premium Coffee',
             footer_text: 'Developed with ❤️ by Pedro Honorio'
         }
     };
@@ -257,5 +275,145 @@ document.addEventListener('DOMContentLoaded', () => {
             img.classList.add('loaded');
         }
     });
+
+    // Carrossel de Projetos
+    const carousel = document.querySelector('.projects-carousel');
+    const projectsGrid = carousel ? carousel.querySelector('.projects-grid') : null;
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const dotsContainer = document.querySelector('.carousel-dots');
+    
+    if (projectsGrid && prevBtn && nextBtn) {
+        const cards = projectsGrid.querySelectorAll('.project-card');
+        const totalCards = cards.length;
+        let currentIndex = 0;
+        let cardsToShow = 3;
+        
+        function updateCardsToShow() {
+            cardsToShow = window.innerWidth <= 768 ? 1 : 3;
+            const totalPages = Math.ceil(totalCards / cardsToShow);
+            
+            // Recriar dots
+            dotsContainer.innerHTML = '';
+            for (let i = 0; i < totalPages; i++) {
+                const dot = document.createElement('button');
+                dot.classList.add('carousel-dot');
+                if (i === Math.floor(currentIndex / cardsToShow)) dot.classList.add('active');
+                dot.addEventListener('click', () => goToPage(i));
+                dotsContainer.appendChild(dot);
+            }
+        }
+        
+        updateCardsToShow();
+        const dots = () => dotsContainer.querySelectorAll('.carousel-dot');
+        
+        function updateCarousel() {
+            const cardWidth = cards[0].offsetWidth;
+            const gap = window.innerWidth <= 768 ? 16 : 32;
+            const offset = currentIndex * (cardWidth + gap);
+            projectsGrid.style.transform = `translateX(-${offset}px)`;
+            
+            // Atualizar dots
+            const currentPage = Math.floor(currentIndex / cardsToShow);
+            dots().forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentPage);
+            });
+            
+            // Atualizar botões
+            prevBtn.disabled = currentIndex === 0;
+            // Permite ir até o último card
+            const maxIndex = totalCards - 1;
+            nextBtn.disabled = currentIndex >= maxIndex;
+        }
+        
+        function goToPage(pageIndex) {
+            currentIndex = pageIndex * cardsToShow;
+            const maxIndex = totalCards - 1;
+            if (currentIndex > maxIndex) {
+                currentIndex = maxIndex;
+            }
+            updateCarousel();
+        }
+        
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            }
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            const maxIndex = totalCards - 1;
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+                updateCarousel();
+            }
+        });
+        
+        // Auto-play
+        let autoPlayInterval = setInterval(() => {
+            const maxIndex = totalCards - 1;
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+            } else {
+                currentIndex = 0; // Volta ao início
+            }
+            updateCarousel();
+        }, 4000); // 4 segundos entre cada transição
+        
+        // Pausar auto-play ao passar o mouse
+        carousel.addEventListener('mouseenter', () => {
+            clearInterval(autoPlayInterval);
+        });
+        
+        carousel.addEventListener('mouseleave', () => {
+            autoPlayInterval = setInterval(() => {
+                const maxIndex = totalCards - 1;
+                if (currentIndex < maxIndex) {
+                    currentIndex++;
+                } else {
+                    currentIndex = 0; // Volta ao início
+                }
+                updateCarousel();
+            }, 4000);
+        });
+        
+        // Suporte touch para mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        carousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            const maxIndex = totalCards - 1;
+            if (touchStartX - touchEndX > 50 && currentIndex < maxIndex) {
+                currentIndex++;
+                updateCarousel();
+            }
+            if (touchEndX - touchStartX > 50 && currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            }
+        }
+        
+        updateCarousel();
+        
+        // Atualizar ao redimensionar
+        window.addEventListener('resize', () => {
+            updateCardsToShow();
+            const maxIndex = totalCards - 1;
+            if (currentIndex > maxIndex) {
+                currentIndex = maxIndex;
+            }
+            updateCarousel();
+        });
+    }
 
 });
