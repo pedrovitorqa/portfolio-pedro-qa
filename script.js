@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
             pillar_tech_4: '<i class="fas fa-sync-alt"></i> BDD e integração contínua (CI/CD)',
             pillar_tech_5: '<i class="fas fa-bug"></i> Gestão completa do ciclo de vida de bugs',
             pillar_leadership_title: 'Liderança & Comunicação',
-            pillar_leadership_1: '<i class="fas fa-user-check"></i> Reconhecida como proativo e organizado',
+            pillar_leadership_1: '<i class="fas fa-user-check"></i> Reconhecido como proativo e organizado',
             pillar_leadership_2: '<i class="fas fa-lightbulb"></i> Traduz complexidade técnica em soluções de negócio',
             pillar_leadership_3: '<i class="fas fa-handshake"></i> Referência em relacionamento com cliente',
             pillar_leadership_4: '<i class="fas fa-eye"></i> Visibilidade total do projeto',
