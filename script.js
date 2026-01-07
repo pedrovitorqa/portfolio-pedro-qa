@@ -1,5 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // ========================================
+    // PRELOADER
+    // ========================================
+    const preloader = document.querySelector('.preloader');
+    
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            preloader.classList.add('fade-out');
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
+        }, 1000);
+    });
+
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
     const header = document.getElementById('header');
@@ -216,11 +230,6 @@ document.addEventListener('DOMContentLoaded', () => {
         card.style.animationDelay = `${index * 0.1}s`;
     });
 
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach((card, index) => {
-        card.style.animationDelay = `${index * 0.05}s`;
-    });
-
     const pillars = document.querySelectorAll('.pillar');
     pillars.forEach((pillar, index) => {
         pillar.style.animationDelay = `${index * 0.2}s`;
@@ -433,6 +442,179 @@ document.addEventListener('DOMContentLoaded', () => {
                 currentIndex = maxIndex;
             }
             updateCarousel();
+        });
+    }
+
+    // ========================================
+    // ANIMAÇÕES AVANÇADAS
+    // ========================================
+    
+    // Criar partículas de fundo
+    function createParticles() {
+        const particlesContainer = document.createElement('div');
+        particlesContainer.className = 'particles';
+        document.body.appendChild(particlesContainer);
+        
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+    }
+    
+    createParticles();
+    
+    // Scroll reveal animation
+    const scrollRevealElements = document.querySelectorAll('.about-card, .pillar, .tech-badge');
+    
+    const revealOnScroll = () => {
+        scrollRevealElements.forEach(element => {
+            if (!element.classList.contains('scroll-reveal')) {
+                element.classList.add('scroll-reveal');
+            }
+            
+            const elementTop = element.getBoundingClientRect().top;
+            const elementVisible = 150;
+            
+            if (elementTop < window.innerHeight - elementVisible) {
+                element.classList.add('active');
+            }
+        });
+    };
+    
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll(); // Chamar uma vez no carregamento
+    
+    // Adicionar efeito ripple aos botões (exceto botões do carrossel)
+    const buttons = document.querySelectorAll('button:not(.carousel-btn), .btn, .project-card');
+    buttons.forEach(button => {
+        button.classList.add('ripple');
+    });
+    
+    // Cursor personalizado (apenas para desktop)
+    if (window.innerWidth > 768) {
+        const cursorDot = document.createElement('div');
+        cursorDot.className = 'cursor-dot';
+        document.body.appendChild(cursorDot);
+        
+        const cursorOutline = document.createElement('div');
+        cursorOutline.className = 'cursor-outline';
+        document.body.appendChild(cursorOutline);
+        
+        let mouseX = 0, mouseY = 0;
+        let outlineX = 0, outlineY = 0;
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            cursorDot.style.left = mouseX + 'px';
+            cursorDot.style.top = mouseY + 'px';
+        });
+        
+        // Animação suave do outline
+        function animateOutline() {
+            outlineX += (mouseX - outlineX) * 0.1;
+            outlineY += (mouseY - outlineY) * 0.1;
+            
+            cursorOutline.style.left = outlineX + 'px';
+            cursorOutline.style.top = outlineY + 'px';
+            
+            requestAnimationFrame(animateOutline);
+        }
+        
+        animateOutline();
+        
+        // Expandir cursor ao passar sobre elementos clicáveis (exceto botões do carrossel)
+        const clickables = document.querySelectorAll('a, button:not(.carousel-btn), .project-card, .social-icon');
+        clickables.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursorOutline.style.transform = 'scale(1.5)';
+                cursorDot.style.transform = 'scale(1.5)';
+            });
+            
+            el.addEventListener('mouseleave', () => {
+                cursorOutline.style.transform = 'scale(1)';
+                cursorDot.style.transform = 'scale(1)';
+            });
+        });
+    }
+    
+    // Contador animado para números
+    function animateCounter(element, target, duration = 2000) {
+        let start = 0;
+        const increment = target / (duration / 16);
+        
+        const timer = setInterval(() => {
+            start += increment;
+            if (start >= target) {
+                element.textContent = target + '+';
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(start);
+            }
+        }, 16);
+    }
+    
+    // Efeito de parallax melhorado
+    const parallaxElements = document.querySelectorAll('.gradient-circle');
+    let lastScrollY = 0;
+    let ticking2 = false;
+    
+    window.addEventListener('scroll', () => {
+        lastScrollY = window.scrollY;
+        
+        if (!ticking2) {
+            window.requestAnimationFrame(() => {
+                parallaxElements.forEach((el, index) => {
+                    const speed = 0.3 + (index * 0.15);
+                    const yPos = -(lastScrollY * speed);
+                    el.style.transform = `translate(-50%, calc(-50% + ${yPos}px))`;
+                });
+                ticking2 = false;
+            });
+            ticking2 = true;
+        }
+    });
+    
+    // Efeito de hover com som (opcional - pode ser removido se preferir)
+    const hoverElements = document.querySelectorAll('.social-icon, .tech-badge, .project-card');
+    hoverElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            el.style.transform = el.style.transform || '';
+        });
+    });
+    
+    // Smooth scroll melhorado
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href !== '#' && href.length > 1) {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+    
+    // Adicionar efeito de glitch no hover do título (sutil)
+    const logo = document.querySelector('.logo');
+    if (logo) {
+        logo.addEventListener('mouseenter', () => {
+            logo.style.animation = 'glitch 0.3s ease';
+        });
+        
+        logo.addEventListener('animationend', () => {
+            logo.style.animation = '';
         });
     }
 
